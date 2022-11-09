@@ -36,9 +36,13 @@ public class Main {
                 System.out.println("Which product would you like to remove? Input number or name?");
                 //доделать удаление по имени
                 String remove = scanner.nextLine();
-                int i = Integer.parseInt(remove);
-                arrayList.remove(i-1);
-            break;
+                    try {
+                        int i = Integer.parseInt(remove);
+                        arrayList.remove(i-1);
+                        continue;
+                    } catch (Exception e) {}
+                    arrayList.remove(remove);
+                break;
             }
 
 

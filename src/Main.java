@@ -49,7 +49,6 @@ public class Main {
                     if (search.toLowerCase().equals("return")) break;
                     int count = 0;
                     for (int i = 0; i < arrayList.size(); i++) {
-
                         if (arrayList.get(i).toLowerCase().contains(search.toLowerCase())) {
                             System.out.printf("%d. %s\n", i+1, arrayList.get(i));
                         } else count++;

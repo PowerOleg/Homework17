@@ -1,3 +1,5 @@
+//                        добавить кнопку возврата в главное меню
+//                        сделать нормальное README
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -44,13 +46,14 @@ public class Main {
                 case "4":
                     System.out.println("Input a word to search");
                     String search = scanner.nextLine();
+                    int count = 0;
                     for (int i = 0; i < arrayList.size(); i++) {
+
                         if (arrayList.get(i).toLowerCase().contains(search.toLowerCase())) {
                             System.out.printf("%d. %s\n", i+1, arrayList.get(i));
-                        }
-//                        добавить что если ничего не найдено то ничего не найдено
-//                        добавить кнопку возврата в главное меню
+                        } else count++;
                     }
+                    if (count == arrayList.size()) System.out.println("Sorry, no matches");
                     break;
             }
         }

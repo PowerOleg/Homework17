@@ -1,5 +1,3 @@
-//                        добавить кнопку возврата в главное меню
-//                        сделать нормальное README
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -23,9 +21,10 @@ public class Main {
 
             switch (s) {
             case "1":
-                System.out.println("What product would you like to add?");
+                System.out.println("Enter product which you would like to add or input \"return\"");
                 System.out.print(">>");
                 String ss = scanner.nextLine();
+                if (ss.toLowerCase().equals("return")) break;
                 arrayList.add(ss);
                 System.out.printf("You made purchases: %d\n", arrayList.size());
             break;
@@ -34,18 +33,20 @@ public class Main {
             break;
             case "3":
                 show(arrayList);
-                System.out.println("Which product would you like to remove? Input number or name?");
+                System.out.println("Enter product number or name you would like to remove or input \"return\"");
                 String remove = scanner.nextLine();
                     try {
                         int i = Integer.parseInt(remove);
                         arrayList.remove(i-1);
                         continue;
-                    } catch (Exception e) {}                    //?пустой catch
-                    arrayList.remove(remove);
+                    } catch (Exception e) {}
+                if (remove.toLowerCase().equals("return")) break;
+                arrayList.remove(remove);
                 break;
                 case "4":
-                    System.out.println("Input a word to search");
+                    System.out.println("Input a word to search or input \"return\"");
                     String search = scanner.nextLine();
+                    if (search.toLowerCase().equals("return")) break;
                     int count = 0;
                     for (int i = 0; i < arrayList.size(); i++) {
 

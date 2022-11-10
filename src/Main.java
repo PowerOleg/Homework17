@@ -37,11 +37,14 @@ public class Main {
                 String remove = scanner.nextLine();
                     try {
                         int i = Integer.parseInt(remove);
-                        arrayList.remove(i-1);
-                        continue;
+                        String element = arrayList.remove(i - 1);
+                        System.out.println("The element removed");
+                            continue;
                     } catch (Exception e) {}
                 if (remove.toLowerCase().equals("return")) break;
-                arrayList.remove(remove);
+                if (arrayList.remove(remove)) {
+                    System.out.println("The element removed");
+                } else System.out.println("Sorry, no matches");
                 break;
                 case "4":
                     System.out.println("Input a word to search or input \"return\"");

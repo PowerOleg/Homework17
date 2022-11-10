@@ -21,7 +21,7 @@ public class Main {
 
             switch (s) {
             case "1":
-                System.out.println("Enter product which you would like to add or input \"return\"");
+                System.out.println("Enter product's name which you would like to add or input \"return\"");
                 System.out.print(">>");
                 String ss = scanner.nextLine();
                 if (ss.toLowerCase().equals("return")) break;
@@ -33,7 +33,7 @@ public class Main {
             break;
             case "3":
                 show(arrayList);
-                System.out.println("Enter product number or name you would like to remove or input \"return\"");
+                System.out.println("Enter product's number or name you would like to remove or input \"return\"");
                 String remove = scanner.nextLine();
                 if (remove.toLowerCase().equals("return")) break;
                 try {

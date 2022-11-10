@@ -3,7 +3,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 public class Main {
-    public static void show(List arrayList) {
+    public static <T> void show(List<T> arrayList) {
         System.out.println("The order list:");
         for (int i = 0; i < arrayList.size(); i++) {
             System.out.printf("%d. %s\n", i+1, arrayList.get(i));
@@ -35,13 +35,13 @@ public class Main {
                 show(arrayList);
                 System.out.println("Enter product number or name you would like to remove or input \"return\"");
                 String remove = scanner.nextLine();
-                    try {
-                        int i = Integer.parseInt(remove);
-                        String element = arrayList.remove(i - 1);
-                        System.out.println("The element removed");
-                            continue;
-                    } catch (Exception e) {}
                 if (remove.toLowerCase().equals("return")) break;
+                try {
+                        int i = Integer.parseInt(remove);
+                        arrayList.remove(i - 1);
+                        System.out.println("The element removed");
+                        continue;
+                    } catch (Exception e) {}
                 if (arrayList.remove(remove)) {
                     System.out.println("The element removed");
                 } else System.out.println("Sorry, no matches");
@@ -50,14 +50,8 @@ public class Main {
                     System.out.println("Input a word to search or input \"return\"");
                     String search = scanner.nextLine();
                     if (search.toLowerCase().equals("return")) break;
-                    int count = 0;
-                    for (int i = 0; i < arrayList.size(); i++) {
-                        if (arrayList.get(i).toLowerCase().contains(search.toLowerCase())) {
-                            System.out.printf("%d. %s\n", i+1, arrayList.get(i));
-                        } else count++;
-                    }
-                    if (count == arrayList.size()) System.out.println("Sorry, no matches");
-                    break;
+                    arrayList.stream().filter(n -> n.toLowerCase().contains(search.toLowerCase()))
+                            .forEach(n -> System.out.printf("%d. %s\n", arrayList.indexOf(n) + 1, n));
             }
         }
     }

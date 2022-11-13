@@ -41,10 +41,11 @@ public class Main {
                         arrayList.remove(i - 1);
                         System.out.println("The element removed");
                         continue;
-                    } catch (Exception e) {}
-                if (arrayList.remove(remove)) {
-                    System.out.println("The element removed");
-                } else System.out.println("Sorry, no matches");
+                    } catch (Exception e) {
+                    if (arrayList.remove(remove)) {
+                        System.out.println("The element removed");
+                    } else System.out.println("Sorry, no matches");
+                }
                 break;
                 case "4":
                     System.out.println("Input a word to search or input \"return\"");

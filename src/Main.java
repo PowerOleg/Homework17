@@ -36,16 +36,16 @@ public class Main {
                 System.out.println("Enter product's number or name you would like to remove or input \"return\"");
                 String remove = scanner.nextLine();
                 if (remove.toLowerCase().equals("return")) break;
-                try {
-                        int i = Integer.parseInt(remove);
-                        arrayList.remove(i - 1);
-                        System.out.println("The element removed");
-                        continue;
-                    } catch (Exception e) {
-                    if (arrayList.remove(remove)) {
-                        System.out.println("The element removed");
-                    } else System.out.println("Sorry, no matches");
-                }
+
+                if (arrayList.remove(remove)) {
+                    System.out.println("The element removed");
+                } else if (Integer.parseInt(remove) > 0 &&
+                    Integer.parseInt(remove) <= arrayList.size()) {
+                    int i = Integer.parseInt(remove);
+                    arrayList.remove(i - 1);
+                    System.out.println("The element removed");
+                } else System.out.println("Sorry, no matches");
+
                 break;
                 case "4":
                     System.out.println("Input a word to search or input \"return\"");

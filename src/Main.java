@@ -25,6 +25,7 @@ public class Main {
             if (s.toLowerCase().equals("end")) break;
 
             switch (s) {
+
                 case "1":
                     System.out.println("Enter product's name which you would like to add or input \"return\"");
                     System.out.print(">>");
@@ -51,6 +52,7 @@ public class Main {
                     } else System.out.println("Sorry, no matches");
 
                     break;
+
                 case "4":
                     System.out.println("Input a word to search or input \"return\"");
                     String search = scanner.nextLine();
